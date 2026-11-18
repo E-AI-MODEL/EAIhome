@@ -17,14 +17,28 @@ Bij een **voorgestelde taak** kun je kiezen voor **Aannemen** of **Geen taak**. 
 
 Je kunt ook de stand op eerdere testdatums bekijken. Deze historische weergave is bewust alleen-lezen. De tijdlijn vertelt wat op het gekozen moment bekend was, en verandert niets aan de huidige registratie.
 
-## Starten
+## Starten op een Mac
 
-Vereist Python 3.11+ in de lokale repository:
+De browserproef staat nog op branch `feat/today-local-ui-v0.4`, niet op `main`. Je moet de repository eerst op je Mac ophalen. Vereist: Git en Python 3.11 of nieuwer.
+
+Open **Terminal** en voer het volgende complete blok uit. De map `~/Downloads/EAIhome-vandaag` mag nog niet bestaan.
 
 ```bash
+cd ~/Downloads
+git clone --branch feat/today-local-ui-v0.4 --single-branch https://github.com/E-AI-MODEL/EAIhome.git EAIhome-vandaag
+cd EAIhome-vandaag
+python3 --version
+python3 -m venv .venv
+source .venv/bin/activate
 python -m pip install -e .
 eaihome --home "$HOME/.local/share/eaihome-demo" work-ui
 ```
+
+`python3 --version` moet 3.11 of hoger tonen. Stop bij een foutmelding en los die eerst op. Een oudere Python-versie vereist een nieuwe Python-installatie en een nieuwe `.venv`.
+
+Bij een volgende keer: open Terminal, ga naar `~/Downloads/EAIhome-vandaag`, voer `source .venv/bin/activate` uit en start `eaihome --home "$HOME/.local/share/eaihome-demo" work-ui` opnieuw.
+
+De lokale server blijft draaien zolang Terminal openstaat. Hij is niet bereikbaar als openbare website.
 
 Open daarna in dezelfde computer:
 
