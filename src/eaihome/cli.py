@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 
 from . import __version__
+from .continuity import load_scenario, work_status
 from .search import rebuild, search, versions
 from .store import add_file, init, verify
 
@@ -36,6 +37,11 @@ def parser() -> argparse.ArgumentParser:
     history = sub.add_parser("versions", help="List all authorised versions of a family")
     history.add_argument("family")
     history.add_argument("--group", action="append", default=None)
+    demo = sub.add_parser("work-demo", help="Show a fictional work timeline with source anchors")
+    demo.add_argument("--scenario", type=Path,
+                      default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_work_scenario.json")
+    demo.add_argument("--known-at", required=True, help="What was known at this timezone-aware instant?")
+    demo.add_argument("--effective-at", help="What applied at this instant? Defaults to --known-at")
     return p
 
 
@@ -60,6 +66,10 @@ def main(argv: list[str] | None = None) -> int:
             result = verify(home)
         elif args.command == "search":
             result = search(home, args.query, groups=group, limit=args.limit)
+        elif args.command == "work-demo":
+            scenario_path = args.scenario.expanduser().resolve()
+            scenario = load_scenario(scenario_path, scenario_path.parents[2])
+            result = work_status(scenario, args.known_at, args.effective_at)
         else:
             result = versions(home, args.family, groups=group)
         print(json.dumps(result, ensure_ascii=False, indent=2))

@@ -41,3 +41,13 @@ Lees [het ontwerp](docs/ARCHITECTURE.md) en [de golden path](docs/GOLDEN-PATH.md
 ## Fictieve mockupbestanden
 
 Voor format- en importproeven staan 20 fictieve bestanden in [fixtures/mockups](fixtures/mockups). Bekijk de [formatmatrix](docs/MOCKUPS.md) voor de typen en de huidige importstatus.
+
+## Werkcontinuïteit met fictieve gebeurtenissen
+
+De eerste semantische proef reconstrueert een veranderende afspraak uit bronverwijzingen en expliciet geannoteerde gebeurtenissen. Probeer:
+
+```bash
+PYTHONPATH=src python -m eaihome work-demo --known-at 2026-11-19T11:00:00+01:00
+```
+
+Dit is **geen** automatische taakherkenning of echte gebruikersautorisatie. [Lees de proef en beperkingen](docs/WORK-CONTINUITY-V0.2.md).

@@ -1,0 +1,183 @@
+{
+  "schema": "eaihome.work-demo.v1",
+  "case_id": "EAIHOME-DEMO-001",
+  "context_id": "ctx_atlas_demo",
+  "subjects": [
+    {
+      "id": "task_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "kind": "task",
+      "title": "ACT-001: agenda en stukken controleren",
+      "due_at": "2026-11-20T17:00:00+01:00"
+    },
+    {
+      "id": "task_atlas_002",
+      "context_id": "ctx_atlas_demo",
+      "kind": "task",
+      "title": "ACT-002: opmerkingen verzamelen"
+    },
+    {
+      "id": "commitment_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "kind": "commitment",
+      "title": "Testbeheer zegt de agenda vrijdag te controleren"
+    },
+    {
+      "id": "decision_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "kind": "decision",
+      "title": "Besluit over voorstel Project Atlas"
+    },
+    {
+      "id": "meeting_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "kind": "meeting",
+      "title": "Controleoverleg Project Atlas"
+    }
+  ],
+  "events": [
+    {
+      "id": "ev_001",
+      "subject_id": "task_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "task.proposed",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T10:06:00+01:00",
+      "effective_at": "2026-11-18T10:00:00+01:00",
+      "source_ref": "fixtures/mockups/eml/EAIhome_mockup_eml.eml",
+      "source_sha256": "65ce63b19438bdd19be83066ee3fe9e3c7dc8ee282174f7c5f8d6c17d60f95da",
+      "source_quote": "Kun jij voor 20 november de agenda en stukken controleren?"
+    },
+    {
+      "id": "ev_002",
+      "subject_id": "commitment_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "commitment.reported",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T11:05:00+01:00",
+      "effective_at": "2026-11-18T11:00:00+01:00",
+      "source_ref": "fixtures/mockups/eml/EAIhome_mockup_eml_reply.eml",
+      "source_sha256": "151e263be3e0c46fd0e245a4e891010e0387641d3c8824a5568e542c96b2a630",
+      "source_quote": "Ik controleer de agenda vrijdag."
+    },
+    {
+      "id": "ev_003",
+      "subject_id": "meeting_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "meeting.scheduled",
+      "actor_kind": "connector",
+      "actor_ref": "calendar-demo",
+      "recorded_at": "2026-11-18T12:00:00+01:00",
+      "effective_at": "2026-11-18T12:00:00+01:00",
+      "source_ref": "fixtures/mockups/ics/EAIhome_mockup_ics.ics",
+      "source_sha256": "2d7350c3ab1a18c18254cd8cc6b01ec6ab412a74e8822714681b8136528ec916",
+      "source_quote": "SUMMARY:Project Atlas controleoverleg (fictief)"
+    },
+    {
+      "id": "ev_004",
+      "subject_id": "decision_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "decision.proposed",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T13:00:00+01:00",
+      "effective_at": "2026-11-18T13:00:00+01:00",
+      "source_ref": "fixtures/mockups/md/EAIhome_mockup_md_v2.md",
+      "source_sha256": "1592e1f8ebd70ff5286bde537528766e069591e518bab173baa02505a97bf286",
+      "source_quote": "Het voorstel is nog niet goedgekeurd."
+    },
+    {
+      "id": "ev_005",
+      "subject_id": "task_atlas_002",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "task.proposed",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T14:00:00+01:00",
+      "effective_at": "2026-11-18T14:00:00+01:00",
+      "source_ref": "fixtures/mockups/csv/EAIhome_mockup_csv.csv",
+      "source_sha256": "4e9109955c73ff4fe2007f942059b86ff556312dbdcbe3983a681cbfdf4eeebe",
+      "source_quote": "ACT-002,Verzamel opmerkingen,Afgerond"
+    },
+    {
+      "id": "ev_006",
+      "subject_id": "task_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "task.noted",
+      "actor_kind": "system",
+      "actor_ref": "annotator-demo",
+      "recorded_at": "2026-11-19T08:05:00+01:00",
+      "effective_at": "2026-11-19T08:00:00+01:00",
+      "source_ref": "fixtures/scenarios/EAIhome_mockup_eml_change.eml",
+      "source_sha256": "22377b8648438d8d090138637a76038c07b4cf1eecd5f5bc8fc553ffcb808a00",
+      "source_quote": "De stukken zijn nog niet compleet."
+    },
+    {
+      "id": "ev_007",
+      "subject_id": "task_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "task.accepted",
+      "actor_kind": "person",
+      "actor_ref": "testbeheer-demo",
+      "recorded_at": "2026-11-19T10:05:00+01:00",
+      "effective_at": "2026-11-19T10:00:00+01:00",
+      "source_ref": "fixtures/scenarios/EAIhome_mockup_review.md",
+      "source_sha256": "ee3a7ce3047f6746c8d6e99b28562ad70710b3f1f97ac96ff14d74b6105ff646",
+      "source_quote": "Testbeheer bevestigt ACT-001 als eigen taak."
+    },
+    {
+      "id": "ev_008",
+      "subject_id": "decision_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "decision.discussed",
+      "actor_kind": "person",
+      "actor_ref": "testbeheer-demo",
+      "recorded_at": "2026-11-19T15:20:00+01:00",
+      "effective_at": "2026-11-19T15:00:00+01:00",
+      "source_ref": "fixtures/scenarios/EAIhome_mockup_review.md",
+      "source_sha256": "ee3a7ce3047f6746c8d6e99b28562ad70710b3f1f97ac96ff14d74b6105ff646",
+      "source_quote": "Het voorstel is besproken. Er is geen besluit genomen."
+    },
+    {
+      "id": "ev_009",
+      "subject_id": "meeting_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "meeting.cancelled",
+      "actor_kind": "connector",
+      "actor_ref": "calendar-demo",
+      "recorded_at": "2026-11-20T09:05:00+01:00",
+      "effective_at": "2026-11-20T09:00:00+01:00",
+      "source_ref": "fixtures/scenarios/EAIhome_mockup_ics_cancelled.ics",
+      "source_sha256": "09e8fa171ac963e81d73ae7227f642871a5f5b5f2593a919aa47e427013dd3ef",
+      "source_quote": "STATUS:CANCELLED"
+    },
+    {
+      "id": "ev_010",
+      "subject_id": "task_atlas_001",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "task.completed",
+      "actor_kind": "person",
+      "actor_ref": "testbeheer-demo",
+      "recorded_at": "2026-11-20T12:00:00+01:00",
+      "effective_at": "2026-11-20T10:00:00+01:00",
+      "source_ref": "fixtures/scenarios/EAIhome_mockup_review.md",
+      "source_sha256": "ee3a7ce3047f6746c8d6e99b28562ad70710b3f1f97ac96ff14d74b6105ff646",
+      "source_quote": "Testbeheer bevestigt dat ACT-001 om 10:00 is afgerond."
+    },
+    {
+      "id": "ev_011",
+      "subject_id": "task_atlas_002",
+      "context_id": "ctx_atlas_demo",
+      "event_kind": "task.dismissed",
+      "actor_kind": "person",
+      "actor_ref": "testbeheer-demo",
+      "recorded_at": "2026-11-20T14:05:00+01:00",
+      "effective_at": "2026-11-20T14:00:00+01:00",
+      "source_ref": "fixtures/scenarios/EAIhome_mockup_review.md",
+      "source_sha256": "ee3a7ce3047f6746c8d6e99b28562ad70710b3f1f97ac96ff14d74b6105ff646",
+      "source_quote": "ACT-002 was geen taak, maar een bespreekpunt."
+    }
+  ]
+}
