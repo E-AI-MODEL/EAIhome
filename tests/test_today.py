@@ -73,7 +73,7 @@ class TodayBrowserTests(unittest.TestCase):
             self.assertIn(label, page)
         self.assertIn("task_demo_a", page)
         self.assertIn("task_demo_b", page)
-        self.assertIn("Fictieve gegevens", page)
+        self.assertIn("fictieve gegevens", page)
         self.assertIn("eaihome", page.lower())
 
     def test_page_has_mobile_viewport_accessible_controls_and_no_external_assets(self):

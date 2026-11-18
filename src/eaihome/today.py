@@ -247,9 +247,14 @@ def render_today(view: dict, token: str = "", *, editable: bool = False,
     for key, title, description in headings:
         content = "".join(_item(item, token, editable) for item in sections[key])
         if not content:
-            content = (
-                '<div class="empty">Geen ' + h(title.lower()) +
-                ' in deze fictieve registratie. Dit zegt niets over je echte werk.</div>'
+            empty_notes = {
+                "open": "Geen aangenomen open taken in deze fictieve registratie.",
+                "proposals": "Geen voorgestelde taken in deze fictieve registratie.",
+                "processed": "Nog geen afgeronde of afgewezen taken geregistreerd.",
+                "signals": "Geen aanvullende ontwikkelingen in deze fictieve registratie.",
+            }
+            content = '<div class="empty">' + h(empty_notes[key]) + (
+                " Dit zegt niets over je echte werk.</div>"
             )
         cards.append(
             '<section class="panel" id="' + key + '"><div class="panel-heading"><h2>'
