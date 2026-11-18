@@ -1,0 +1,18 @@
+{
+  "fixture": "EAIHOME-DEMO-001",
+  "source_status": "fictief",
+  "tasks": [
+    {
+      "id": "ACT-001",
+      "state": "open"
+    },
+    {
+      "id": "ACT-002",
+      "state": "done"
+    }
+  ],
+  "decision": {
+    "status": "proposed",
+    "approved": false
+  }
+}

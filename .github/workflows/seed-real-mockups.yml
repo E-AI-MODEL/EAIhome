@@ -1,0 +1,45 @@
+name: seed-real-mockups
+
+on:
+  push:
+    branches:
+      - feat/corpus-index-v0.1
+    paths:
+      - tools/generate_binary_mockups.py
+      - tools/generate_mockup_pptx.js
+      - .github/workflows/seed-real-mockups.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-commit:
+    if: github.repository == 'E-AI-MODEL/EAIhome'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test-fixture generators
+        run: |
+          python -m pip install -r tools/requirements-mockups.txt
+          npm install --prefix tools --no-save --no-package-lock --no-audit --no-fund pptxgenjs
+      - name: Generate authentic files and SHA-256 manifest
+        run: python tools/generate_binary_mockups.py
+      - name: Validate all mockups and existing code
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Commit only generated fixtures to this feature branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add fixtures/mockups/
+          if ! git diff --cached --quiet; then
+            git commit -m "test: add 20 real-format fictional mockups [skip ci]"
+            git push origin HEAD:feat/corpus-index-v0.1
+          fi
