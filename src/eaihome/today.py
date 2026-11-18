@@ -400,7 +400,12 @@ def create_server(store: CorrectionStore, port: int = 0) -> ThreadingHTTPServer:
 
 
 def serve_today(home: Path, scenario_path: Path, port: int = 8765) -> int:
-    store = CorrectionStore(home, scenario_path)
+    # This browser demo can only open the shipped fictional case.
+    fixture_dir = (Path(__file__).resolve().parents[2] / "fixtures" / "scenarios").resolve()
+    chosen = scenario_path.expanduser().resolve()
+    if chosen.parent != fixture_dir or not chosen.name.startswith("EAIhome_mockup_"):
+        raise ValueError("Deze browserproef mag alleen een meegeleverd fictief scenario openen")
+    store = CorrectionStore(home, chosen)
     with create_server(store, port) as server:
         url = f"http://127.0.0.1:{server.server_address[1]}/"
         print(f"EAIhome fictieve Vandaag-proef: {url}", flush=True)
