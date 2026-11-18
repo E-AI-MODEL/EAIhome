@@ -60,6 +60,6 @@ Dit is nog geen gebruikersauthenticatie of automatische taakherkenning. [Probeer
 
 ## Eerste scherm: Vandaag (fictieve browserproef)
 
-Start de lokale browserweergave met `eaihome --home "$HOME/.local/share/eaihome-demo" work-ui`. Open daarna `http://127.0.0.1:8765/`. Je ziet voorgestelde, aangenomen en afgeronde taken, met broncitaten en de mogelijkheid een fictieve correctie te bewaren.
+De browserproef staat nog op branch `feat/today-local-ui-v0.4`, niet op `main`. Haal deze branch eerst naar je eigen computer en installeer het Python-programma in een virtuele omgeving. Zie de [volledige startinstructie voor macOS](docs/VANDAAG-V0.4.md#starten-op-een-mac). Daarna opent `http://127.0.0.1:8765/` op dezelfde computer de fictieve werkweergave.
 
 De demo gebruikt geen echte accountgegevens, externe scripts of AI-verbindingen. [Bekijk de handleiding](docs/VANDAAG-V0.4.md). Geen persoonlijke informatie in de openbare repo opnemen.
