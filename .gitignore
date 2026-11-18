@@ -17,3 +17,7 @@ __pycache__/
 .venv/
 .pytest_cache/
 coverage/
+
+# Mockup development and visual-QA scratch files
+node_modules/
+fixtures/mockups/*/EAIhome_mockup_*/
