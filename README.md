@@ -51,3 +51,9 @@ PYTHONPATH=src python -m eaihome work-demo --known-at 2026-11-19T11:00:00+01:00
 ```
 
 Dit is **geen** automatische taakherkenning of echte gebruikersautorisatie. [Lees de proef en beperkingen](docs/WORK-CONTINUITY-V0.2.md).
+
+## Correcties bewaren tijdens een fictieve proef
+
+Met `work-correct` kun je een **fictieve** taak aannemen, afwijzen of afronden. `work-state` reconstrueert de werkstatus met de lokaal opgeslagen gebeurtenisgeschiedenis. De correcties blijven beschikbaar na herstart en na `index`.
+
+Dit is nog geen gebruikersauthenticatie of automatische taakherkenning. [Probeer de lokale demo](docs/WORK-STORE-V0.3.md). Het bijbehorende SQLite-register blijft buiten GitHub.

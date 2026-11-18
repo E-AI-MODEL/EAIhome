@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import __version__
 from .continuity import load_scenario, work_status
+from .workstore import CorrectionStore
 from .search import rebuild, search, versions
 from .store import add_file, init, verify
 
@@ -42,6 +43,21 @@ def parser() -> argparse.ArgumentParser:
                       default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_work_scenario.json")
     demo.add_argument("--known-at", required=True, help="What was known at this timezone-aware instant?")
     demo.add_argument("--effective-at", help="What applied at this instant? Defaults to --known-at")
+    corrected = sub.add_parser("work-correct", help="Record a fictional local operator correction")
+    corrected.add_argument("--scenario", type=Path,
+                           default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_corrections.json")
+    corrected.add_argument("--subject", required=True)
+    corrected.add_argument("--event", required=True, help="Example: task.dismissed")
+    corrected.add_argument("--actor", required=True, help="Local demo label only, not verified identity")
+    corrected.add_argument("--reason", required=True)
+    corrected.add_argument("--expected-revision", type=int, required=True)
+    corrected.add_argument("--request-id", required=True, help="Retry-safe idempotency key")
+    corrected.add_argument("--effective-at", help="Timezone-aware effective time; otherwise recorded time")
+    state = sub.add_parser("work-state", help="Reconstruct demo work status plus saved corrections")
+    state.add_argument("--scenario", type=Path,
+                       default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_corrections.json")
+    state.add_argument("--known-at", required=True)
+    state.add_argument("--effective-at")
     return p
 
 
@@ -66,6 +82,16 @@ def main(argv: list[str] | None = None) -> int:
             result = verify(home)
         elif args.command == "search":
             result = search(home, args.query, groups=group, limit=args.limit)
+        elif args.command == "work-correct":
+            record = CorrectionStore(home, args.scenario)
+            result = record.append(
+                request_id=args.request_id, subject_id=args.subject,
+                event_kind=args.event, actor_ref=args.actor, reason=args.reason,
+                expected_revision=args.expected_revision, effective_at=args.effective_at,
+            )
+        elif args.command == "work-state":
+            record = CorrectionStore(home, args.scenario)
+            result = record.view(args.known_at, args.effective_at)
         elif args.command == "work-demo":
             scenario_path = args.scenario.expanduser().resolve()
             scenario = load_scenario(scenario_path, scenario_path.parents[2])
