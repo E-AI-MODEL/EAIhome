@@ -1,0 +1,3 @@
+EAIhome fictieve notitie
+CASE: EAIHOME-DEMO-001
+Open: ACT-001. Controleer agenda en stukken voor 20 november 2026.

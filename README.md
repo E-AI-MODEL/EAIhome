@@ -37,3 +37,7 @@ Nog geen PDF/DOCX-extractie, OCR, semantisch zoeken, AI-antwoorden, mail/agenda-
 **Let op: deze repo is openbaar.** Plaats nooit echte mails, leerlinggegevens, gespreksverslagen, bronbestanden of gegenereerde indexen in GitHub. Gebruik voor deze proef alleen fictieve gegevens.
 
 Lees [het ontwerp](docs/ARCHITECTURE.md) en [de golden path](docs/GOLDEN-PATH.md).
+
+## Fictieve mockupbestanden
+
+Voor format- en importproeven staan 20 fictieve bestanden in [fixtures/mockups](fixtures/mockups). Bekijk de [formatmatrix](docs/MOCKUPS.md) voor de typen en de huidige importstatus.
