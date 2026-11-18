@@ -207,8 +207,13 @@ class CorrectionStore:
         db = self._connect(write=True)
         assert db is not None
         try:
+            # Bootstrap is its own committed transaction. A rejected first
+            # correction must not leave a version-0, unreadable empty database.
             db.execute("BEGIN IMMEDIATE")
             self._scope(db, create=True)
+            db.commit()
+            db.execute("BEGIN IMMEDIATE")
+            self._scope(db, create=False)
             rows = self._rows(db)
             for existing in rows:
                 if existing["request_id"] == request_id:
