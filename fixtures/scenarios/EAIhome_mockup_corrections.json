@@ -1,0 +1,85 @@
+{
+  "schema": "eaihome.work-demo.v1",
+  "case_id": "EAIHOME-DEMO-CORRECTIONS",
+  "context_id": "ctx_mockup_corrections",
+  "subjects": [
+    {
+      "id": "task_demo_a",
+      "context_id": "ctx_mockup_corrections",
+      "kind": "task",
+      "title": "Agenda controleren: voorstel uit mail"
+    },
+    {
+      "id": "task_demo_b",
+      "context_id": "ctx_mockup_corrections",
+      "kind": "task",
+      "title": "Stukken verzamelen: voorstel uit document"
+    },
+    {
+      "id": "commitment_demo_a",
+      "context_id": "ctx_mockup_corrections",
+      "kind": "commitment",
+      "title": "Gerapporteerde toezegging agenda te controleren"
+    },
+    {
+      "id": "decision_demo_a",
+      "context_id": "ctx_mockup_corrections",
+      "kind": "decision",
+      "title": "Voorstel nog niet besloten"
+    }
+  ],
+  "events": [
+    {
+      "id": "ev_correction_a",
+      "subject_id": "task_demo_a",
+      "context_id": "ctx_mockup_corrections",
+      "event_kind": "task.proposed",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T10:06:00+01:00",
+      "effective_at": "2026-11-18T10:00:00+01:00",
+      "source_ref": "fixtures/mockups/eml/EAIhome_mockup_eml.eml",
+      "source_sha256": "65ce63b19438bdd19be83066ee3fe9e3c7dc8ee282174f7c5f8d6c17d60f95da",
+      "source_quote": "Kun jij voor 20 november de agenda en stukken controleren?"
+    },
+    {
+      "id": "ev_correction_b",
+      "subject_id": "task_demo_b",
+      "context_id": "ctx_mockup_corrections",
+      "event_kind": "task.proposed",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T10:07:00+01:00",
+      "effective_at": "2026-11-18T10:00:00+01:00",
+      "source_ref": "fixtures/mockups/md/EAIhome_mockup_md_v2.md",
+      "source_sha256": "1592e1f8ebd70ff5286bde537528766e069591e518bab173baa02505a97bf286",
+      "source_quote": "De agenda en stukken moeten nog worden gecontroleerd."
+    },
+    {
+      "id": "ev_correction_c",
+      "subject_id": "commitment_demo_a",
+      "context_id": "ctx_mockup_corrections",
+      "event_kind": "commitment.reported",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T11:05:00+01:00",
+      "effective_at": "2026-11-18T11:00:00+01:00",
+      "source_ref": "fixtures/mockups/eml/EAIhome_mockup_eml_reply.eml",
+      "source_sha256": "151e263be3e0c46fd0e245a4e891010e0387641d3c8824a5568e542c96b2a630",
+      "source_quote": "Ik controleer de agenda vrijdag."
+    },
+    {
+      "id": "ev_correction_d",
+      "subject_id": "decision_demo_a",
+      "context_id": "ctx_mockup_corrections",
+      "event_kind": "decision.proposed",
+      "actor_kind": "model",
+      "actor_ref": "model-demo",
+      "recorded_at": "2026-11-18T13:00:00+01:00",
+      "effective_at": "2026-11-18T13:00:00+01:00",
+      "source_ref": "fixtures/mockups/md/EAIhome_mockup_md_v2.md",
+      "source_sha256": "1592e1f8ebd70ff5286bde537528766e069591e518bab173baa02505a97bf286",
+      "source_quote": "Het voorstel is nog niet goedgekeurd."
+    }
+  ]
+}

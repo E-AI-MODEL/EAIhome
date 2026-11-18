@@ -23,3 +23,8 @@ jobs:
 
       - name: Run fictional work-timeline CLI
         run: PYTHONPATH=src python -m eaihome work-demo --known-at 2026-11-20T13:00:00+01:00 --effective-at 2026-11-20T11:00:00+01:00
+      - name: Store and reload a fictional correction
+        run: |
+          PYTHONPATH=src python -m eaihome --home "$RUNNER_TEMP/eaihome-work-demo" work-correct --subject task_demo_a --event task.dismissed --actor test-operator --reason "Deze vraag was geen opdracht" --expected-revision 1 --request-id ci-correct-0001
+          PYTHONPATH=src python -m eaihome --home "$RUNNER_TEMP/eaihome-work-demo" index
+          PYTHONPATH=src python -m eaihome --home "$RUNNER_TEMP/eaihome-work-demo" work-state --known-at 2099-01-01T00:00:00+00:00 | python -c 'import json,sys; x=json.load(sys.stdin); assert x["local_correction_count"]==1; assert any(y["id"]=="task_demo_a" and y["status"]=="dismissed" for y in x["other_objects"])'
