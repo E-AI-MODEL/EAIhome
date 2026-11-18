@@ -57,3 +57,9 @@ Dit is **geen** automatische taakherkenning of echte gebruikersautorisatie. [Lee
 Met `work-correct` kun je een **fictieve** taak aannemen, afwijzen of afronden. `work-state` reconstrueert de werkstatus met de lokaal opgeslagen gebeurtenisgeschiedenis. De correcties blijven beschikbaar na herstart en na `index`.
 
 Dit is nog geen gebruikersauthenticatie of automatische taakherkenning. [Probeer de lokale demo](docs/WORK-STORE-V0.3.md). Het bijbehorende SQLite-register blijft buiten GitHub.
+
+## Eerste scherm: Vandaag (fictieve browserproef)
+
+Start de lokale browserweergave met `eaihome --home "$HOME/.local/share/eaihome-demo" work-ui`. Open daarna `http://127.0.0.1:8765/`. Je ziet voorgestelde, aangenomen en afgeronde taken, met broncitaten en de mogelijkheid een fictieve correctie te bewaren.
+
+De demo gebruikt geen echte accountgegevens, externe scripts of AI-verbindingen. [Bekijk de handleiding](docs/VANDAAG-V0.4.md). Geen persoonlijke informatie in de openbare repo opnemen.
