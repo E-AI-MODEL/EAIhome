@@ -58,6 +58,10 @@ def parser() -> argparse.ArgumentParser:
                        default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_corrections.json")
     state.add_argument("--known-at", required=True)
     state.add_argument("--effective-at")
+    ui = sub.add_parser("work-ui", help="Open a local fictional Vandaag overview")
+    ui.add_argument("--scenario", type=Path,
+                    default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_corrections.json")
+    ui.add_argument("--port", type=int, default=8765, help="Local 127.0.0.1 port, default 8765")
     return p
 
 
@@ -82,6 +86,9 @@ def main(argv: list[str] | None = None) -> int:
             result = verify(home)
         elif args.command == "search":
             result = search(home, args.query, groups=group, limit=args.limit)
+        elif args.command == "work-ui":
+            from .today import serve_today
+            return serve_today(home, args.scenario, args.port)
         elif args.command == "work-correct":
             record = CorrectionStore(home, args.scenario)
             result = record.append(
