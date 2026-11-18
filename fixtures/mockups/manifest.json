@@ -1,0 +1,186 @@
+{
+  "schema": "eaihome.fixture-manifest.v1",
+  "case_id": "EAIHOME-DEMO-001",
+  "fixtures": [
+    {
+      "path": "csv/EAIhome_mockup_csv.csv",
+      "format": "csv",
+      "bytes": 125,
+      "sha256": "4e9109955c73ff4fe2007f942059b86ff556312dbdcbe3983a681cbfdf4eeebe",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "docx/EAIhome_mockup_doc.docx",
+      "format": "docx",
+      "bytes": 37053,
+      "sha256": "8291abc4481767bf8b127f7000c28450d687ebbae75127c7e2d1250a78e06c7b",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "eml/EAIhome_mockup_eml.eml",
+      "format": "eml",
+      "bytes": 380,
+      "sha256": "65ce63b19438bdd19be83066ee3fe9e3c7dc8ee282174f7c5f8d6c17d60f95da",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "eml/EAIhome_mockup_eml_reply.eml",
+      "format": "eml",
+      "bytes": 471,
+      "sha256": "151e263be3e0c46fd0e245a4e891010e0387641d3c8824a5568e542c96b2a630",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "html/EAIhome_mockup_html.html",
+      "format": "html",
+      "bytes": 209,
+      "sha256": "e347265cdb47c74b6d1ba174938c833166d68d8947e308b15510dd80db9a3ecc",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "ics/EAIhome_mockup_ics.ics",
+      "format": "ics",
+      "bytes": 314,
+      "sha256": "2d7350c3ab1a18c18254cd8cc6b01ec6ab412a74e8822714681b8136528ec916",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "jpg/EAIhome_mockup_jpg.jpg",
+      "format": "jpg",
+      "bytes": 22365,
+      "sha256": "4b17b3cefd543869740cd41376f25593022c955802ac6b680fde005985f34db8",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "json/EAIhome_mockup_json.json",
+      "format": "json",
+      "bytes": 268,
+      "sha256": "358cdb33b3ce563e84a0d7282767c1205ce584956c0390eae215cce2ceae9795",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "md/EAIhome_mockup_md_v1.md",
+      "format": "md",
+      "bytes": 116,
+      "sha256": "45894e91816cfa9c0acbe0daccf5223be205f3154bcdbfb609ee775fa5163b45",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "md/EAIhome_mockup_md_v2.md",
+      "format": "md",
+      "bytes": 169,
+      "sha256": "1592e1f8ebd70ff5286bde537528766e069591e518bab173baa02505a97bf286",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "pdf/EAIhome_mockup_pdf.pdf",
+      "format": "pdf",
+      "bytes": 1821,
+      "sha256": "97f95bd31f9c4f29e14fa153cd65c8565881fbf43b76075b6d3e7288904dbe0c",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "png/EAIhome_mockup_png.png",
+      "format": "png",
+      "bytes": 6986,
+      "sha256": "75b4e218dfdc0e166dbf0f51cad1a1e995590c08e911453493547ac8094003e2",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "pptx/EAIhome_mockup_pptx.pptx",
+      "format": "pptx",
+      "bytes": 60619,
+      "sha256": "2e9219b817b421d64726fae3a134eb178da6eefc925877ec9636f8b7027cc811",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "txt/EAIhome_mockup_txt.txt",
+      "format": "txt",
+      "bytes": 115,
+      "sha256": "4d9af247fe67760f6d2fe0bf0530db9995e4eb965388e1026f14c02b5fdae720",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "processed"
+    },
+    {
+      "path": "vcf/EAIhome_mockup_vcf.vcf",
+      "format": "vcf",
+      "bytes": 141,
+      "sha256": "d5ce3d8bde83b3b149ea49d860ac6fb51a07793fa8a2a2511ffa922047fa57ab",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "wav/EAIhome_mockup_wav.wav",
+      "format": "wav",
+      "bytes": 12044,
+      "sha256": "84d862582d1272e87ce674d15d0edae0bef208a6f4fa28014c3bda9a780cf429",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "xlsx/EAIhome_mockup_xlsx.xlsx",
+      "format": "xlsx",
+      "bytes": 5861,
+      "sha256": "8fb581d3a6aa948d427dd974390ae97e4def5be3ced36994c11b9b0a12cc8865",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "xml/EAIhome_mockup_xml.xml",
+      "format": "xml",
+      "bytes": 149,
+      "sha256": "39ee944d9f8c20dcc7fcaaf8d3ebc6d175c882bc7dde07f3a477e22d1dbba18f",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "yaml/EAIhome_mockup_yaml.yaml",
+      "format": "yaml",
+      "bytes": 81,
+      "sha256": "6d71f8d4581569864902188a7bda64d252d3dd7fcb231a3eb8e080d22ca7d63e",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    },
+    {
+      "path": "zip/EAIhome_mockup_zip.zip",
+      "format": "zip",
+      "bytes": 285,
+      "sha256": "55d635d03a7f03d6f26881ab5d7e0aca9e5f75fb79f823d360ce132a80f76a15",
+      "case_id": "EAIHOME-DEMO-001",
+      "fictional": true,
+      "expected_ingest_status_v0_1": "unsupported_format"
+    }
+  ]
+}
