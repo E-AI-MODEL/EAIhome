@@ -1,0 +1,19 @@
+# Personal corpus, source files, derived text and indexes MUST NOT be committed.
+.eaihome/
+.eaihome*/
+index.sqlite3*
+manifest.jsonl
+objects/
+corpus/private/
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.*
+!/.env.example
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+coverage/
