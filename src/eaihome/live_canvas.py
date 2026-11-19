@@ -119,6 +119,8 @@ def canvas_data(view: dict) -> dict:
             continue
         trace = item.get("trace") or []
         last = trace[-1] if trace else {}
+        last_source = last.get("source", {})
+        local_note = last_source.get("kind") == "unverified_local_operator_note"
         source = next((step.get("source", {}) for step in reversed(trace)
                        if step.get("source", {}).get("path")), {})
         recorded = last.get("recorded_at")
@@ -134,7 +136,8 @@ def canvas_data(view: dict) -> dict:
             "when": shown,
             "source": str(source.get("path", "geen bronlocatie"))[:240],
             "quote": str(source.get("quote", ""))[:550],
-            "provenance_kind": "local_note" if last.get("source", {}).get("kind") == "unverified_local_operator_note" else "fixture",
+            "provenance_kind": "local_note" if local_note else "fixture",
+            "correction_reason": str(last_source.get("reason", ""))[:500] if local_note else "",
         })
     return {"context": "Project Atlas · fictieve gegevens", "items": result, "events": [], "case_id": view["case_id"]}
 
