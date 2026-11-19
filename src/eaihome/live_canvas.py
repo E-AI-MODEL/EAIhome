@@ -12,6 +12,7 @@ import re
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from zoneinfo import ZoneInfo
 from urllib import error, request
 from urllib.parse import urlsplit
 
@@ -122,7 +123,7 @@ def canvas_data(view: dict) -> dict:
                        if step.get("source", {}).get("path")), {})
         recorded = last.get("recorded_at")
         try:
-            shown = datetime.fromisoformat(recorded.replace("Z", "+00:00")).astimezone().strftime("%d %b %Y, %H:%M") if recorded else "Datum onbekend"
+            shown = datetime.fromisoformat(recorded.replace("Z", "+00:00")).astimezone(ZoneInfo("Europe/Amsterdam")).strftime("%d %b %Y, %H:%M") if recorded else "Datum onbekend"
         except (ValueError, AttributeError):
             shown = "Datum onbekend"
         result.append({
