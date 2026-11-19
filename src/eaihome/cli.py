@@ -58,6 +58,9 @@ def parser() -> argparse.ArgumentParser:
                        default=Path(__file__).resolve().parents[2] / "fixtures/scenarios/EAIhome_mockup_corrections.json")
     state.add_argument("--known-at", required=True)
     state.add_argument("--effective-at")
+    canvas = sub.add_parser("work-canvas", help="Build a fictional workspace with a local LLM")
+    canvas.add_argument("--port", type=int, default=8765, help="Loopback port (default 8765)")
+    canvas.add_argument("--model", default="qwen3:4b", help="Installed Ollama model for layout plans")
     return p
 
 
@@ -82,6 +85,9 @@ def main(argv: list[str] | None = None) -> int:
             result = verify(home)
         elif args.command == "search":
             result = search(home, args.query, groups=group, limit=args.limit)
+        elif args.command == "work-canvas":
+            from .live_canvas import serve_canvas
+            return serve_canvas(home, model=args.model, port=args.port)
         elif args.command == "work-correct":
             record = CorrectionStore(home, args.scenario)
             result = record.append(

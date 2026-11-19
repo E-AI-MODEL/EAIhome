@@ -2,7 +2,7 @@
 
 **Persoonlijke werkassistent, begonnen bij bronnen die je kunt controleren.**
 
-Deze repository bevat v0.1: een lokaal bronregister, versiebeheer en een doorzoekbare SQLite-index. Het is nog geen AI-assistent en nog geen dashboard.
+De oorspronkelijke basis bevat een lokaal bronregister en een doorzoekbare SQLite-index. Deze ontwikkelbranch bevat daarnaast een **interactief canvas** met fictieve werkgegevens. De lege werkruimte krijgt vorm vanuit een vraag, zonder dat de bronstatus wordt herschreven.
 
 ## Werkt nu
 
@@ -57,3 +57,19 @@ Dit is **geen** automatische taakherkenning of echte gebruikersautorisatie. [Lee
 Met `work-correct` kun je een **fictieve** taak aannemen, afwijzen of afronden. `work-state` reconstrueert de werkstatus met de lokaal opgeslagen gebeurtenisgeschiedenis. De correcties blijven beschikbaar na herstart en na `index`.
 
 Dit is nog geen gebruikersauthenticatie of automatische taakherkenning. [Probeer de lokale demo](docs/WORK-STORE-V0.3.md). Het bijbehorende SQLite-register blijft buiten GitHub.
+
+## Live canvas: probeer eerst de HTML
+
+**Zonder installatie:** download [EAIhome_live_canvas.html](demos/EAIhome_live_canvas.html) en open het bestand in een browser. Je begint op een zacht leeg canvas. Een vraag bouwt onderdelen op, zoals een tijdlijn, taken of een overlegvoorbereiding. Dit is een **vaste demomodus**, geen echte AI.
+
+**Met een lokale LLM:** installeer Python 3.11+ en [Ollama](https://ollama.com/), en gebruik in deze branch:
+
+```bash
+python -m pip install -e .
+ollama pull qwen3:4b
+eaihome --home "$HOME/.local/share/eaihome-demo" work-canvas --model qwen3:4b
+```
+
+Open daarna `http://127.0.0.1:8765/` **op dezelfde computer**. Ollama kiest alleen welke vooraf toegestane onderdelen worden getoond. EAIhome vult die met fictieve, herleidbare gegevens; er worden geen echte bronnen of persoonsgegevens naar het model gestuurd. Zonder Ollama blijft de pagina in duidelijk gemarkeerde demomodus werken. Er is nog geen gebruikersautorisatie of productie-integratie.
+
+[Volledige uitleg, grenzen en testaanpak](docs/LIVE-CANVAS-V0.5.md).
